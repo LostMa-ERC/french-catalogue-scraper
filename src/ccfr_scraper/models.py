@@ -30,6 +30,9 @@ class Description(BaseModel):
     ]
     digitization: Annotated[str | None, Field(default=None), BeforeValidator(join_list)]
     content: str | None = Field(default=None)
+    ecriture: str | None = Field(default=None, serialization_alias="script")
+    reglure: str | None = Field(default=None, serialization_alias="ruling")
+    codicology: str | None = Field(default=None)
 
 
 class Dimension(BaseModel):

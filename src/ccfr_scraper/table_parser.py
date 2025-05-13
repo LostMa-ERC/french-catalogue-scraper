@@ -31,6 +31,9 @@ class TableParser:
             "marginalia": self.marginalia,
             "digitization": self.digitization,
             "content": self.content,
+            "ecriture": self.ecriture,
+            "reglure": self.reglure,
+            "codicology": self.codicology,
         }
         model = Description.model_validate(d)
         return model
@@ -81,6 +84,30 @@ class TableParser:
     @property
     def extent(self) -> str | None:
         header = self.soup.find("td", string=re.compile(r"Importance matérielle"))
+        if header:
+            data = header.find_next("td")
+            if data is not None:
+                return data.text.strip()
+
+    @property
+    def ecriture(self) -> str | None:
+        header = self.soup.find("td", string=re.compile(r"Écriture"))
+        if header:
+            data = header.find_next("td")
+            if data is not None:
+                return data.text.strip()
+
+    @property
+    def reglure(self) -> str | None:
+        header = self.soup.find("td", string=re.compile(r"Réglure"))
+        if header:
+            data = header.find_next("td")
+            if data is not None:
+                return data.text.strip()
+
+    @property
+    def codicology(self) -> str | None:
+        header = self.soup.find("td", string=re.compile(r"codicologiques"))
         if header:
             data = header.find_next("td")
             if data is not None:
