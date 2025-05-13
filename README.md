@@ -1,6 +1,6 @@
-# CCFR Scraper
+# French catalogue scrapers
 
-HTML scraper for gathering descriptive metadata from a document's notice in the Catalogue collectif de France.
+HTML scrapers for gathering descriptive metadata from a document's notice in the Catalogue collectif de France or the Archives et Manuscrits in the Bibliothèque nationale de France's catalogue.
 
 ## Installation
 
@@ -8,7 +8,7 @@ HTML scraper for gathering descriptive metadata from a document's notice in the 
 
 2. Install the dependencies and script with `pip install .`
 
-3. Test the installation.
+3. Test the installation by viewing the CCFR scraper's `help` documentation.
 
 ```console
 $ ccfr-scraper --help
@@ -25,6 +25,10 @@ Options:
 ```
 
 ## Run
+
+The package has 2 scripts, one for each catalogue.
+
+### Catalogue collectif de France (`ccfr-scraper`)
 
 Run the `ccfr-scraper` command with the following parameters:
 
@@ -75,3 +79,7 @@ If the document's notice did not have a description that could be scraped, it wi
 ```log
 2025-05-13 16:18:53,961 - CCFR Scraper - WARNING - Content wasn't found on page: https://ccfr.bnf.fr/portailccfr/ark:/16871/005FRCGMBPF-593506101-01a
 ```
+
+### Archives et Manuscrits (`am-scraper`)
+
+... to do
