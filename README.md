@@ -122,4 +122,24 @@ If the document's notice did not have a description that could be scraped, it wi
 
 ### Archives et Manuscrits (`am-scraper`)
 
-... to do
+You can run the AM scraper on a single URL, which will print the results in the terminal, or on a set of URLs from a CSV, which will write the results to a new CSV file.
+
+#### From 1 URL
+
+Run the `am-scraper url` subcommand with a URL (in quotation marks) as an argument.
+
+```console
+$ am-scraper url "https://archivesetmanuscrits.bnf.fr/ark:/12148/cc117974"
+```
+
+#### From CSV
+
+Run the `am-scraper file` subcommand with the following parameters:
+
+- `-i` / `--infile` : path to the CSV file with the notices' URLs
+- `-c` / `--column` : the column in the infile that has the URLs
+- `-o` / `--outfile` : path to the file the program will produce / overwrite
+
+```shell
+am-scraper file -i input.csv -c url -o output.csv
+```
