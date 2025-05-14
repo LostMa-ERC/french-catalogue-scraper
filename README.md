@@ -12,16 +12,17 @@ HTML scrapers for gathering descriptive metadata from a document's notice in the
 
 ```console
 $ ccfr-scraper --help
-Usage: ccfr-scraper [OPTIONS]
+Usage: ccfr-scraper [OPTIONS] COMMAND [ARGS]...
 
   Scrape the bibliographic, physical, and content descriptions from the notice
   of a document in the Catalogue collectif de France using the notice's URL.
 
 Options:
-  -i, --infile TEXT   Path to the CSV file with the notice URL.  [required]
-  -c, --column TEXT   Column that contains the notice URL.  [required]
-  -o, --outfile TEXT  Path to the output enriched CSV file.  [required]
-  --help              Show this message and exit.
+  --help  Show this message and exit.
+
+Commands:
+  file  Scrape a set of URLs from a CSV file.
+  url   Scrape 1 URL.
 ```
 
 ## Run
@@ -30,14 +31,53 @@ The package has 2 scripts, one for each catalogue.
 
 ### Catalogue collectif de France (`ccfr-scraper`)
 
-Run the `ccfr-scraper` command with the following parameters:
+You can run the CCFR scraper on a single URL, which will print the results in the terminal, or on a set of URLs from a CSV, which will write the results to a new CSV file.
+
+#### From 1 URL
+
+Run the `ccfr-scraper url` subcommand with a URL (in quotation marks) as an argument.
+
+```console
+$ ccfr-scraper url "https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonymous.jsp?record=eadcgm:EADC:D29012180"
+
+Description(
+    num='593',
+    cote=None,
+    old_cote=None,
+    date='Début du XIVe siècle',
+    title="Recueil|col. 1. Les prophéties de Merlin, traduites pour l'empereur Frédéric. « Ci commencent les profecies Merlin et ses euvres, et
+les merveilles que il fist en la Grant Bretaigne et en maintes autres terres asés soutillement. Et pour ce s'en test atant li conte de ceste
+matière. Et parole des profecies Merlin, qui sont translatées du latin en françois, que Fedelic a fait translater, por ce que li chevalier et li
+autre gent laies les entendent miex et i puissent prendre aucune essample... »",
+    language='français, latin|français, latin',
+    height='370',
+    width='247',
+    dimension_source='370 × 247 mm',
+    extent='538 feuillets, à 3 colonnes, au lieu de 544 constatés par un ancien foliotage (nos I-VcXLIII, plus un folio. V bis)',
+    support='Parchemin',
+    marginalia=None,
+    illustration=None,
+    decoration=None,
+    physical_characteristics=None,
+    digitization=None,
+    content=None,
+    ecriture=None,
+    reglure=None,
+    codicology=None
+)
+Scraping... ⠦ 0:00:02
+```
+
+#### From CSV
+
+Run the `ccfr-scraper file` subcommand with the following parameters:
 
 - `-i` / `--infile` : path to the CSV file with the notices' URLs
 - `-c` / `--column` : the column in the infile that has the URLs
 - `-o` / `--outfile` : path to the file the program will produce / overwrite
 
 ```shell
-ccfr-scraper -i input.csv -c url -o output.csv
+ccfr-scraper file -i input.csv -c url -o output.csv
 ```
 
 While the program processes the data file and its URLs, you can observe the results one by one in the terminal.
