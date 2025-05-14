@@ -27,12 +27,12 @@ def from_url(url: str):
     """Scrape 1 URL."""
     console = Console()
     with Progress(
-            TextColumn("{task.description}"),
-            SpinnerColumn(),
-            TimeElapsedColumn(),
-            console=console,
-        ) as p:
-        t = p.add_task("Scraping...")
+        TextColumn("{task.description}"),
+        SpinnerColumn(),
+        TimeElapsedColumn(),
+        console=console,
+    ) as p:
+        _ = p.add_task("Scraping...")
         console.print(url)
         modelled_data = scrape_page(url=url)
         console.print(modelled_data)

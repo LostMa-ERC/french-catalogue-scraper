@@ -9,6 +9,7 @@ dependencies = [
     "beautifulsoup4>=4.13.4",
     "casanova>=2.0.2",
     "click>=8.2.0",
+    "lxml>=5.4.0",
     "pydantic>=2.11.4",
     "requests>=2.32.3",
     "rich>=14.0.0",
