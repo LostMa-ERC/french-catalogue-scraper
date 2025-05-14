@@ -89,7 +89,7 @@ class TableParser:
             match = language_regexp.search(s)
             if match is not None:
                 s = match[0]
-                return s.removesuffix(".")
+                return s.removesuffix(".").strip()
 
     @property
     def physdesc(self) -> list:
