@@ -39,32 +39,6 @@ Run the `ccfr-scraper url` subcommand with a URL (in quotation marks) as an argu
 
 ```console
 $ ccfr-scraper url "https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonymous.jsp?record=eadcgm:EADC:D29012180"
-
-Description(
-    num='593',
-    cote=None,
-    old_cote=None,
-    date='Début du XIVe siècle',
-    title="Recueil|col. 1. Les prophéties de Merlin, traduites pour l'empereur Frédéric. « Ci commencent les profecies Merlin et ses euvres, et
-les merveilles que il fist en la Grant Bretaigne et en maintes autres terres asés soutillement. Et pour ce s'en test atant li conte de ceste
-matière. Et parole des profecies Merlin, qui sont translatées du latin en françois, que Fedelic a fait translater, por ce que li chevalier et li
-autre gent laies les entendent miex et i puissent prendre aucune essample... »",
-    language='français, latin|français, latin',
-    height='370',
-    width='247',
-    dimension_source='370 × 247 mm',
-    extent='538 feuillets, à 3 colonnes, au lieu de 544 constatés par un ancien foliotage (nos I-VcXLIII, plus un folio. V bis)',
-    support='Parchemin',
-    marginalia=None,
-    illustration=None,
-    decoration=None,
-    physical_characteristics=None,
-    digitization=None,
-    content=None,
-    ecriture=None,
-    reglure=None,
-    codicology=None
-)
 Scraping... ⠦ 0:00:02
 ```
 
@@ -78,40 +52,6 @@ Run the `ccfr-scraper file` subcommand with the following parameters:
 
 ```shell
 ccfr-scraper file -i input.csv -c url -o output.csv
-```
-
-While the program processes the data file and its URLs, you can observe the results one by one in the terminal.
-
-
-```console
-────────────────────────── Result ───────────────────────────
-https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonymous.jsp?record=eadcgm:EADC:D08A12666
-Description(
-    num='1142',
-    cote='Ms O-53',
-    old_cote='O.42',
-    date='XIVe siècle',
-    title='Adenet le Roi. Roman de Godefroy de Bouillon et Berte au grand pied',
-    language='Français',
-    height='218',
-    width='152',
-    dimension_source='218 × 152 mm',
-    extent='140 feuillets',
-    support='Parchemin',
-    marginalia="Au f. 58, des visages sont dessinés à l'encre",
-    illustration=None,
-    decoration='Initiales nues rouges ou bleues',
-    physical_characteristics='Texte manuscrit',
-    digitization=None,
-    content="f. 1 : « D... saiges et escientreus — ...a mains d'avoir et a plus de pechiés. Explicit le romant des caroniques despuis Godefroi de
-Buillon. » L'écriture au recto du premier feuillet est presque entièrement effacée.f. 85 : Berte au grand pied. « A l'issue d'avril, un tans douz
-et joli / Que herbelettes poignent et pré sont reverdi / ... Partent de Florimel mainte gent liemant/ ... De fresche herbe et de jons par tot
-espessemant. » Il manque la fin."
-)
-────────────────────────── Current ──────────────────────────
-https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonymous.jsp?record=eadcgm:EADC:b79374520
-Scraping ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  4/64 0:00:05
-
 ```
 
 If the document's notice did not have a description that could be scraped, it will be reported in the log file, created at the path `scraping.log`. See the example below:
@@ -130,6 +70,7 @@ Run the `am-scraper url` subcommand with a URL (in quotation marks) as an argume
 
 ```console
 $ am-scraper url "https://archivesetmanuscrits.bnf.fr/ark:/12148/cc117974"
+Scraping... ⠦ 0:00:01
 ```
 
 #### From CSV
