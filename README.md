@@ -8,15 +8,20 @@ HTML scrapers for gathering descriptive metadata from a document's notice in the
 
 2. Install the dependencies and script with `pip install git+https://github.com/LostMa-ERC/french-catalogue-scraper.git`
 
-## Run
+## Demos
 
 The package has 2 scripts, one for each catalogue.
 
-### Catalogue collectif de France (`ccfr-scraper`)
+Explore what sort of metadata each scraper gets from its respective catalogue notice.
+
+- [CCFR example](./demos/ccfr_output.csv)
+- [Archives et Manuscrits example](./demos/am_output.csv)
+
+## Catalogue collectif de France (`ccfr-scraper`)
 
 You can run the CCFR scraper on a single URL, which will print the results in the terminal, or on a set of URLs from a CSV, which will write the results to a new CSV file.
 
-#### From 1 URL
+### From 1 URL
 
 Run the `ccfr-scraper url` subcommand with a URL (in quotation marks) as an argument.
 
@@ -25,7 +30,7 @@ $ ccfr-scraper url "https://ccfr.bnf.fr/portailccfr/jsp/index_view_direct_anonym
 Scraping... ⠦ 0:00:02
 ```
 
-#### From CSV
+### From CSV
 
 Run the `ccfr-scraper file` subcommand with the following parameters:
 
@@ -43,11 +48,11 @@ If the document's notice did not have a description that could be scraped, it wi
 2025-05-13 16:18:53,961 - CCFR Scraper - WARNING - Content wasn't found on page: https://ccfr.bnf.fr/portailccfr/ark:/16871/005FRCGMBPF-593506101-01a
 ```
 
-### Archives et Manuscrits (`am-scraper`)
+## Archives et Manuscrits (`am-scraper`)
 
 You can run the AM scraper on a single URL, which will print the results in the terminal, or on a set of URLs from a CSV, which will write the results to a new CSV file.
 
-#### From 1 URL
+### From 1 URL
 
 Run the `am-scraper url` subcommand with a URL (in quotation marks) as an argument.
 
@@ -56,7 +61,7 @@ $ am-scraper url "https://archivesetmanuscrits.bnf.fr/ark:/12148/cc117974"
 Scraping... ⠦ 0:00:01
 ```
 
-#### From CSV
+### From CSV
 
 Run the `am-scraper file` subcommand with the following parameters:
 
