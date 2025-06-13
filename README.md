@@ -65,5 +65,5 @@ Run the `am-scraper file` subcommand with the following parameters:
 - `-o` / `--outfile` : path to the file the program will produce / overwrite
 
 ```shell
-am-scraper file -i input.csv -c url -o output.csv
+am-scraper file -i demos/am_input.csv -c url -o demos/am_output.csv
 ```
