@@ -6,24 +6,7 @@ HTML scrapers for gathering descriptive metadata from a document's notice in the
 
 1. Create a virtual Python environment of version 3.12 (or greater) and activate it.
 
-2. Install the dependencies and script with `pip install .`
-
-3. Test the installation by viewing the CCFR scraper's `help` documentation.
-
-```console
-$ ccfr-scraper --help
-Usage: ccfr-scraper [OPTIONS] COMMAND [ARGS]...
-
-  Scrape the bibliographic, physical, and content descriptions from the notice
-  of a document in the Catalogue collectif de France using the notice's URL.
-
-Options:
-  --help  Show this message and exit.
-
-Commands:
-  file  Scrape a set of URLs from a CSV file.
-  url   Scrape 1 URL.
-```
+2. Install the dependencies and script with `pip install git+https://github.com/LostMa-ERC/french-catalogue-scraper.git`
 
 ## Run
 
@@ -51,7 +34,7 @@ Run the `ccfr-scraper file` subcommand with the following parameters:
 - `-o` / `--outfile` : path to the file the program will produce / overwrite
 
 ```shell
-ccfr-scraper file -i input.csv -c url -o output.csv
+ccfr-scraper file -i demos/ccfr_input.csv -c url -o demos/ccfr_output.csv
 ```
 
 If the document's notice did not have a description that could be scraped, it will be reported in the log file, created at the path `scraping.log`. See the example below:

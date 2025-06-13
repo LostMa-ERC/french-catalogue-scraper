@@ -16,18 +16,24 @@ logging.basicConfig(
 
 
 def make_soup(url: str) -> BeautifulSoup:
+    # Request the page imitaing a browser (Mozilla Firefox)
     request = Request(url=url, headers={"User-Agent": "Mozilla/5.0"})
     content = urlopen(request).read()
+    # Parse the HTML content with BeautifulSoup
     return BeautifulSoup(content, "html.parser")
 
 
 def scrape_page(url: str) -> Description:
+    # Request the page's HTML and parse it
     soup = make_soup(url)
+    # Try to find the content's table on the page
     try:
         tp = TableParser(soup=soup)
     except exceptions.FeatureNotFound:
-        message = f"Content wasn't found on page: {url}"
+        message = f"Content wasn't found on page.\n\tURL: {url}"
         print(message)
         logger.warning(message)
+        # If the table wasn't found, create an empty description
         return Description(**{})
+    # Validate and model the parsed description metadata
     return tp.model()

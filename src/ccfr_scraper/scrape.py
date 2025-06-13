@@ -18,11 +18,14 @@ logging.basicConfig(
 def scrape_page(url: str) -> Description:
     resp = requests.get(url)
     if resp.status_code != 200:
-        raise requests.RequestException()
+        message = f"The page was not found.\n\tStatus: {resp.status_code}\tURL: {url}"
+        print(message)
+        logger.warning(message)
+        return Description(**{})
     soup = BeautifulSoup(resp.content, "html.parser")
     try:
         tp = TableParser(soup=soup)
     except exceptions.FeatureNotFound:
-        logger.warning(f"Content wasn't found on page: {url}")
+        logger.warning(f"Content was not found on page.\n\tURL: {url}")
         return Description(**{})
     return tp.model()

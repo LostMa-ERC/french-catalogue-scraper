@@ -19,13 +19,22 @@ def from_url(url: str):
 
 @cli.command("file")
 @click.option(
-    "-i", "--infile", required=True, help="Path to the CSV file with the notice URL."
+    "-i",
+    "--infile",
+    required=True,
+    help="Path to the CSV file with the notice URL.",
 )
 @click.option(
-    "-c", "--column", required=True, help="Column that contains the notice URL."
+    "-c",
+    "--column",
+    required=True,
+    help="Column that contains the notice URL.",
 )
 @click.option(
-    "-o", "--outfile", required=True, help="Path to the output enriched CSV file."
+    "-o",
+    "--outfile",
+    required=True,
+    help="Path to the output enriched CSV file.",
 )
 def from_file(infile: str, column: str, outfile: str):
     """Scrape a set of URLs from a CSV file."""
